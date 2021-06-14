@@ -1,11 +1,16 @@
 package com.lalit.myunittestdemo.outside_in_tdd
 
-class Car(var fuel: Double, public val engine: Engine) {
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
+class Car(var fuel: Double, public val engine: Engine) {
 
     fun turnOn(){
        fuel-= 0.5
-       engine.turnOn()
+        CoroutineScope(Dispatchers.Main).launch {
+            engine.turnOn()
+        }
     }
 
 }

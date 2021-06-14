@@ -1,9 +1,12 @@
 package com.lalit.myunittestdemo.outside_in_tdd
 
-class Engine (var isTurnedOn: Boolean = false, var temperature: Int = 15){
+import kotlinx.coroutines.delay
 
-    fun turnOn() {
-       isTurnedOn = true
+class Engine(var isTurnedOn: Boolean = false, var temperature: Int = 15) {
+
+    suspend fun turnOn() {
+        isTurnedOn = true
+        delay(6000)
         temperature = 95
     }
 
